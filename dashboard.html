@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de bord - L.A Création</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Alice&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <!-- <link rel="icon" type="image/png" href="assets/favicon.ico"> -->
+    
+  <script defer src="js/dashboard.js"></script>
+
+</head>
+<body>
+  <div id="loader" class="loader-overlay">
+    <div class="spinner"></div>
+  </div>
+  
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <img src="assets/logo.png" alt="Logo LA Création" class="logo">
+        <h1>Bonjour <span id="prenom"></span></h1>
+
+      </div>
+      <button class="logout-button" onclick="deconnexion()">Se déconnecter</button>
+
+    </header>
+
+    <div class="summary">
+      <div class="card" id="card-stock">
+        <strong>Articles en stock</strong>
+          <div id="nb-stock">…</div>
+      </div>
+
+      <div class="card" id="card-ventes">
+        <strong>Total des ventes</strong>
+          <div id="total-ventes">…</div>
+      </div>
+      
+      <div class="card" id="card-gains">
+        <strong>Gains (20%)</strong>
+          <div id="gain-ventes">…</div>
+      </div>
+    </div>
+
+    <div class="success-message" id="successMessage">
+      🎉 Bravo ! Une vente a été enregistrée avec succès !
+    </div>
+
+    <div class="form-sale">
+      <h2>Enregistrer une vente</h2>
+      <label for="article">Article</label>
+      <select id="article">
+        <option></option>
+        <option></option>
+      </select>
+      <label for="quantite">Quantité</label>
+      <input type="number" id="quantite" min="1" value="1">
+      <button onclick="showSuccess(), enregistrerVente()">Valider la vente</button>
+      <p id="prix-estime"></p> <!--style="margin-top: 1rem; font-weight: bold;"-->
+
+    </div>
+
+    <h2>Stock</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Article</th>
+          <th>Quantité</th>
+          <th>Prix unitaire</th>
+        </tr>
+      </thead>
+      <tbody id="stock-table-body">
+        <tr><td colspan="3">Chargement...</td></tr>
+      </tbody>
+    </table>
+
+     <h2>Historique des ventes</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Article</th>
+              <th>Quantité</th>
+              <th>Prix unitaire</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="ventes-table-body">
+            <tr><td colspan="5">Chargement...</td></tr>
+          </tbody>
+        </table>
+
+  </div>
+
+</body>
+</html>
